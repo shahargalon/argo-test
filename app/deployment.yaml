@@ -1,28 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
-  name: book-store-deployment
-  namespace: default
-  labels:
-    app: books-store
+metadata:
+  name: nginx-deployment
 spec:
-  replicas: 2
   selector:
-    matchLabels: 
-      app: book-store
+    matchLabels:
+      app: nginx
+  replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
-        app: book-store
+        app: nginx
     spec:
       containers:
-      - name: book-store
-        image: gcr.io/sodium-dynamo-292520/book-store
-        imagePullPolicy: Always
+      - name: nginx
+        image: nginx:1.14.2
         ports:
-        - containerPort: 8000
-        resources:
-          requests:
-            cpu: 80m
-          limits:
-            cpu: 100m
+        - containerPort: 80
