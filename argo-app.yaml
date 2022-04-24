@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/shahargalon/argo-test.git
     targetRevision: HEAD
-    path: dev
+    path: app
   destination: 
     server: https://kubernetes.default.svc
     namespace: default
